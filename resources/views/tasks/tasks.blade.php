@@ -1,10 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-
- <h1>タスク一覧</h1>
-
-  tasks.blade.phpへコピー  @if (count($tasks) > 0)
+ <h1> {{ Auth::user()->name }}さんのタスク一覧</h1>
+     @if (count($tasks) > 0)
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -24,7 +19,4 @@
             </tbody>
         </table>
     @endif
-
-     {!! link_to_route('tasks.create', '新規タスクの追加', [], ['class' => 'btn btn-primary']) !!}
-     
-@endsection
+ {!! link_to_route('tasks.create', '新規タスクの追加', [], ['class' => 'btn btn-primary']) !!}
